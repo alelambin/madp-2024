@@ -1,17 +1,6 @@
 #include "logger.h"
 
-Logger* Logger::instance = nullptr;
-
-Logger* Logger::getInstance() {
-	if (!instance) {
-		instance = new Logger();
-	}
-	return instance;
-}
-
-Logger::~Logger() {
-	delete instance;
-}
+std::mutex Logger::mutex;
 
 void Logger::print(std::string message) {
 	print(message.c_str());

@@ -6,31 +6,26 @@
 #include <mutex>
 #include "message.h"
 
-#define LOG(...) {                                                      \
-	Logger::getInstance()->print(std::string("[INFO] ") + __VA_ARGS__); \
+#define LOG(...) {                                        \
+	Logger::print(std::string("[INFO] ") + __VA_ARGS__);  \
 }
-#define ERROR(...) {                                                     \
-	Logger::getInstance()->print(std::string("[ERROR] ") + __VA_ARGS__); \
+#define ERROR(...) {                                      \
+	Logger::print(std::string("[ERROR] ") + __VA_ARGS__); \
 }
 #ifdef _DEBUG
-#define DEBUG(...) {                                                     \
-	Logger::getInstance()->print(std::string("[DEBUG] ") + __VA_ARGS__); \
+#define DEBUG(...) {                                      \
+	Logger::print(std::string("[DEBUG] ") + __VA_ARGS__); \
 }
 #else
 #define DEBUG(...)
 #endif
 
 class Logger {
-	static Logger *instance;
-	std::mutex mutex;
-
-	Logger() {}
+	static std::mutex mutex;
 
 public:
-	static Logger *getInstance();
-	~Logger();
-	void print(std::string message);
-	void print(const char *message);
+	static void print(std::string message);
+	static void print(const char *message);
 
 };
 

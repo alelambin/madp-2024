@@ -15,6 +15,8 @@ Manager::Manager(int producersCount, int consumersCount, int brokersCount, int p
 	producersThreads.reserve(producersCount);
 	consumersThreads.reserve(consumersCount);
 	brokersThreads.reserve(brokersCount);
+
+	SharedQueue<Message>::getInstance();
 }
 
 Manager::~Manager() {
