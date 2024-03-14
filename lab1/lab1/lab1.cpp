@@ -13,23 +13,23 @@
 
 int main() {
     int producersCount = GetPrivateProfileInt(INI_SECTION_NAME, INI_PRODUCER_PARAMETER, INI_DEFAULT_INT_VALUE, INI_FILE_NAME);
-    if (producersCount == INI_DEFAULT_INT_VALUE) {
-        ERROR("Could not find parameter \"" + INI_PRODUCER_PARAMETER + "\" in section \"" + INI_SECTION_NAME + "\"\n");
+    if (producersCount == INI_DEFAULT_INT_VALUE || producersCount <= 0) {
+        ERROR("Could not find parameter \"" + INI_PRODUCER_PARAMETER + "\" in section \"" + INI_SECTION_NAME + "\" or it is incorrect\n");
         return -1;
     }
     int consumersCount = GetPrivateProfileInt(INI_SECTION_NAME, INI_CONSUMER_PARAMETER, INI_DEFAULT_INT_VALUE, INI_FILE_NAME);
-    if (consumersCount == INI_DEFAULT_INT_VALUE) {
-        ERROR("Could not find parameter \"" + INI_CONSUMER_PARAMETER + "\" in section \"" + INI_SECTION_NAME + "\"\n");
+    if (consumersCount == INI_DEFAULT_INT_VALUE || consumersCount <= 0) {
+        ERROR("Could not find parameter \"" + INI_CONSUMER_PARAMETER + "\" in section \"" + INI_SECTION_NAME + "\" or it is incorrect\n");
         return -1;
     }
     int brokersCount = GetPrivateProfileInt(INI_SECTION_NAME, INI_BROKER_PARAMETER, INI_DEFAULT_INT_VALUE, INI_FILE_NAME);
-    if (brokersCount == INI_DEFAULT_INT_VALUE) {
-        ERROR("Could not find parameter \"" + INI_BROKER_PARAMETER + "\" in section \"" + INI_SECTION_NAME + "\"\n");
+    if (brokersCount == INI_DEFAULT_INT_VALUE || brokersCount <= 0) {
+        ERROR("Could not find parameter \"" + INI_BROKER_PARAMETER + "\" in section \"" + INI_SECTION_NAME + "\" or it is incorrect\n");
         return -1;
     }
     int poolCapacity = GetPrivateProfileInt(INI_SECTION_NAME, INI_POOL_CAPACITY_PARAMETER, INI_DEFAULT_INT_VALUE, INI_FILE_NAME);
-    if (poolCapacity == INI_DEFAULT_INT_VALUE) {
-        ERROR("Could not find parameter \"" + INI_POOL_CAPACITY_PARAMETER + "\" in section \"" + INI_SECTION_NAME + "\"\n");
+    if (poolCapacity == INI_DEFAULT_INT_VALUE || poolCapacity <= 0) {
+        ERROR("Could not find parameter \"" + INI_POOL_CAPACITY_PARAMETER + "\" in section \"" + INI_SECTION_NAME + "\" or it is incorrect\n");
         return -1;
     }
 

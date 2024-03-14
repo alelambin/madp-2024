@@ -20,7 +20,7 @@ void Producer::run() {
 		if (!alive) {
 			break;
 		}
-		Message message = { random(1, consumersCount - 1), std::string("Message from ") + std::to_string(id) };
+		Message message = { random(0, consumersCount - 1), std::string("Message from ") + std::to_string(id) };
 		SharedQueue<Message>::getInstance()->insert(message);
 		LOG("Producer " + str(id) + " send message \"" + message.data + "\" to consumer " + str(message.targetId));
 	}
