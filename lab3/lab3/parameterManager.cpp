@@ -14,7 +14,7 @@ std::string parameters::getString(const char* filename, const char* section, con
         throw std::invalid_argument("Invalid parameter");
     }
     std::string result = parameter;
-    delete parameter;
+    delete[] parameter;
     return result;
 }
 
