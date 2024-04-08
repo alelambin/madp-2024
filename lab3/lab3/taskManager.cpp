@@ -3,8 +3,8 @@
 #define CL_FILE_NAME "./kernel.cl"
 #define CL_MAIN_FUNCTION "find_sequence_length"
 
-TaskManager::TaskManager(int64_t minLimit, int64_t maxLimit, int threadsCount)
-	: minLimit(minLimit), maxLimit(maxLimit), threadsCount(threadsCount) {
+TaskManager::TaskManager(int64_t minLimit, int64_t maxLimit)
+	: minLimit(minLimit), maxLimit(maxLimit) {
 	cl::Device device = cl::Device::getDefault();
 	cl::Context context = cl::Context::getDefault();
 

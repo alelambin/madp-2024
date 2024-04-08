@@ -14,14 +14,13 @@
 class TaskManager {
 	int64_t minLimit;
 	int64_t maxLimit;
-	int threadsCount;
 	cl::Kernel kernel;
 	cl::CommandQueue queue;
 	cl::Buffer buffer;
 	size_t bufferSize;
 
 public:
-	TaskManager(int64_t minLimit, int64_t maxLimit, int threadsCount);
+	TaskManager(int64_t minLimit, int64_t maxLimit);
 	~TaskManager() = default;
 	std::map<int64_t, int64_t> execute();
 
